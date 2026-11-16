@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import type { SessionUser } from "./types"
 
 export const SESSION_COOKIE = "scalepods_session"
-export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7
+export const SESSION_MAX_AGE_SECONDS = 8 * 60 * 60 // 8 hours per login
 
 interface SessionPayload extends SessionUser {
   exp: number
