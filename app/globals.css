@@ -1,0 +1,270 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+
+  --background: 220 25% 97%;
+  --foreground: 240 10% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 8%;
+  --primary: 217 91% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 14% 94%;
+  --secondary-foreground: 240 10% 12%;
+  --muted: 220 14% 93%;
+  --muted-foreground: 220 9% 40%;
+  --subtle: 220 9% 52%;
+  --accent: 220 14% 93%;
+  --accent-foreground: 240 10% 12%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 13% 86%;
+  --input: 220 13% 86%;
+  --ring: 217 91% 55%;
+  --radius: 1rem;
+
+  --sidebar: 0 0% 100% / 0.72;
+  --sidebar-foreground: 240 10% 8%;
+  --sidebar-primary: 217 91% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 14% 93%;
+  --sidebar-accent-foreground: 240 10% 12%;
+  --sidebar-border: 220 13% 86%;
+  --sidebar-ring: 217 91% 55%;
+
+  /* Glassmorphism */
+  --glass-bg: 0 0% 100% / 0.6;
+  --glass-border: 0 0% 100% / 0.85;
+  --glass-shadow: 0 24px 60px -32px hsl(220 45% 35% / 0.35);
+
+  /* Surfaces: a single soft material instead of outlined boxes. */
+  --surface: 0 0% 100% / 0.74;
+  --surface-sheen: 0 0% 100% / 0.55;
+  --surface-highlight: 0 0% 100% / 0.7;
+  --surface-rim: 240 12% 10% / 0.07;
+  --surface-shadow: 0 1px 1px hsl(240 12% 10% / 0.04),
+    0 16px 32px -26px hsl(240 12% 10% / 0.24),
+    0 48px 80px -64px hsl(240 12% 10% / 0.3);
+
+  --ambient-one: 217 91% 60% / 0.16;
+  --ambient-two: 265 85% 64% / 0.11;
+  --ambient-three: 190 90% 58% / 0.1;
+
+  /* Drifting background circle */
+  --orb-core: 217 91% 58% / 0.3;
+  --orb-mid: 265 85% 64% / 0.18;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 8% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 5%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 5% 12%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 5% 12%;
+  --muted-foreground: 240 5% 64.9%;
+  --subtle: 240 4% 46%;
+  --accent: 240 5% 14%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 40.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 6% 16%;
+  --input: 240 6% 16%;
+  --ring: 217 91% 60%;
+
+  --sidebar: 240 10% 5% / 0.78;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 5% 14%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 240 6% 16%;
+  --sidebar-ring: 217 91% 60%;
+
+  /* Glassmorphism */
+  --glass-bg: 0 0% 100% / 0.035;
+  --glass-border: 0 0% 100% / 0.08;
+  --glass-shadow: 0 30px 70px -34px hsl(0 0% 0% / 0.8);
+
+  /* Surfaces: a single soft material instead of outlined boxes. */
+  --surface: 0 0% 100% / 0.03;
+  --surface-sheen: 0 0% 100% / 0.05;
+  --surface-highlight: 0 0% 100% / 0.07;
+  --surface-rim: 0 0% 100% / 0.07;
+  --surface-shadow: 0 1px 1px hsl(0 0% 0% / 0.35),
+    0 20px 44px -34px hsl(0 0% 0% / 0.85),
+    0 56px 100px -72px hsl(0 0% 0% / 0.9);
+
+  --ambient-one: 217 91% 60% / 0.16;
+  --ambient-two: 265 85% 64% / 0.13;
+  --ambient-three: 190 90% 58% / 0.08;
+
+  /* Drifting background circle */
+  --orb-core: 217 91% 60% / 0.26;
+  --orb-mid: 265 85% 64% / 0.16;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-subtle: hsl(var(--subtle));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    background-color: hsl(var(--background));
+  }
+  html,
+  body {
+    min-height: 100%;
+    color: hsl(var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  body {
+    /* Transparent so the fixed ambient layer below can show through. */
+    background-color: transparent;
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  /* Fixed ambient layer: static colour washes plus one drifting gradient circle. */
+  .ambient-stage {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background-image:
+      radial-gradient(58rem 58rem at 6% -12%, hsl(var(--ambient-one)), transparent 62%),
+      radial-gradient(48rem 48rem at 102% -4%, hsl(var(--ambient-two)), transparent 58%),
+      radial-gradient(46rem 46rem at 50% 112%, hsl(var(--ambient-three)), transparent 60%);
+    background-repeat: no-repeat;
+  }
+
+  .ambient-orb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 62vmax;
+    height: 62vmax;
+    margin: -31vmax 0 0 -31vmax;
+    border-radius: 50%;
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      hsl(var(--orb-core)) 0%,
+      hsl(var(--orb-mid)) 40%,
+      transparent 70%
+    );
+    filter: blur(28px);
+    animation: ambient-drift 46s linear infinite;
+    will-change: transform;
+  }
+
+  /*
+   * Frosted glass surface used by panels, cards, dialogs and the chrome.
+   *
+   * The box reads as a single sheet of material: a faint top sheen, a soft
+   * hairline rim, and a long diffuse shadow. No heavy outline.
+   */
+  .glass-panel {
+    position: relative;
+    background-color: hsl(var(--surface));
+    background-image: linear-gradient(
+      180deg,
+      hsl(var(--surface-sheen)) 0%,
+      transparent 42%
+    );
+    border: 1px solid hsl(var(--surface-rim));
+    box-shadow:
+      inset 0 1px 0 hsl(var(--surface-highlight)),
+      var(--surface-shadow);
+    @apply backdrop-blur-[22px] backdrop-saturate-150;
+  }
+
+  .glass-panel-soft {
+    background-color: hsl(var(--surface));
+    border: 1px solid hsl(var(--surface-rim));
+    @apply backdrop-blur-[16px] backdrop-saturate-140;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes ambient-drift {
+  0% {
+    transform: translate3d(-34vw, -28vh, 0) scale(0.92);
+  }
+  18% {
+    transform: translate3d(28vw, -34vh, 0) scale(1.06);
+  }
+  36% {
+    transform: translate3d(40vw, 22vh, 0) scale(1);
+  }
+  56% {
+    transform: translate3d(-4vw, 36vh, 0) scale(1.1);
+  }
+  76% {
+    transform: translate3d(-40vw, 14vh, 0) scale(0.96);
+  }
+  100% {
+    transform: translate3d(-34vw, -28vh, 0) scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb {
+    animation: none;
+  }
+}
+
